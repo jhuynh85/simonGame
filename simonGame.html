@@ -6,18 +6,44 @@
 	<!-- font -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
 
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 	<!-- Bootstrap -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
+	<link rel="stylesheet" href="css/piemenu.css">
 	<link rel="stylesheet" href="css/simon.css">
+	<script type='text/javascript' src="js/raphael.min.js"></script>
+	<script type='text/javascript' src="js/wheelnav.min.js"></script>
+
+	<script type="text/javascript">		
+		$(document).ready(function() {
+			// Create Simon board
+			var piemenu = new wheelnav('piemenu');
+			//piemenu.wheelRadius = piemenu.wheelRadius * 0.83;
+			piemenu.colors = colorpalette.default;
+			piemenu.createWheel();		
+		});
+
+	</script>
+
 </head>
 
 <body>
 	<div class="container-fluid">
-
+		<div id='piemenu' data-wheelnav
+			data-wheelnav-slicepath='DonutSlice'
+			data-wheelnav-colors="#2D9E46,#F5BE41,#F77604,#D63C22"
+			data-wheelnav-rotateoff
+			data-wheelnav-navangle='315'
+			data-wheelnav-cssmode 
+			data-wheelnav-init>
+			<div data-wheelnav-navitemtext='0' onmouseup='alert("Place your logic here.");'></div>
+			<div data-wheelnav-navitemtext='1' onmouseup='alert("Place your logic here.");'></div>
+			<div data-wheelnav-navitemtext='2' onmouseup='alert("Place your logic here.");'></div>
+			<div data-wheelnav-navitemtext='3' onmouseup='alert("Place your logic here.");'></div>
+		</div>
 	</div>
 </body>
