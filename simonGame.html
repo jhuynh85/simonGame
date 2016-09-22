@@ -16,10 +16,52 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="css/simon.css">
+	<script type='text/javascript' src="js/simon.js"></script>
 
 	<script type="text/javascript">		
 		$(document).ready(function() {
+			$(".tr").mousedown(function(){
+				if (user_turn){
+					press("r");
+				}
+			});
 
+			$(".br").mousedown(function(){
+				if (user_turn){
+					press("b");
+				}
+			});
+
+			$(".bl").mousedown(function(){
+				if (user_turn){
+					press("y");
+				}
+			});
+
+			$(".tl").mousedown(function(){
+				if (user_turn){
+					press("g");
+				}
+			});
+			
+			// Dim all button colors on mouseup event
+			$("*").mouseup(function(){
+				$(".tr").css("background-color", "#9f0f17");
+				$(".br").css("background-color", "#094a8f");
+				$(".bl").css("background-color", "#cca707");
+				$(".tl").css("background-color", "#00a74a");
+			});
+
+			$("#start_button").click(start);
+
+			$('#strictSwitch').click(function() {
+				toggleStrict();
+			});
+
+
+			$('#powerSwitch').click(function() {
+				togglePower();
+			});
 		});
 
 	</script>
@@ -34,13 +76,13 @@
 			</div>
 			<div class="counter">--</div>
 			<div class="start">
-				<button class="button"></button>
+				<button class="button" id="start_button"></button>
 				&nbsp;<span class="labels">START</span>
 			</div>
 			<div class="strict">
 				<span class="labels">EASY</span>
 				<label class="switch">
-					<input type="checkbox">
+					<input type="checkbox" id="strictSwitch">
 					<div class="slider"></div>
 				</label>
 				<span class="labels">STRICT</span>
@@ -48,7 +90,7 @@
 			<div class="power">
 				<span class="labels">OFF</span>
 				<label class="switch">
-					<input type="checkbox">
+					<input type="checkbox" id="powerSwitch">
 					<div class="slider"></div>
 				</label>
 				<span class="labels">ON</span>
@@ -58,18 +100,18 @@
 		<div class="inner">
 			<!-- Top hemisphere -->
 			<div class="row">
-				<div class="col-xs-5 tl"></div>
+				<div class="col-xs-5 tl" id="green"></div>
 				<div class="col-xs-2 pad"></div>
-				<div class="col-xs-5 tr"></div>
+				<div class="col-xs-5 tr" id="red"></div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 center">&nbsp;</div>	<!-- Hacky way of putting padding between the top and bottom -->		
 			</div>
 			<div class="row">
 				<!-- Bottom hemisphere -->
-				<div class="col-xs-5 bl"></div>
+				<div class="col-xs-5 bl" id="yellow"></div>
 				<div class="col-xs-2 pad"></div>
-				<div class="col-xs-5 br"></div>
+				<div class="col-xs-5 br" id="blue"></div>
 			</div>
 		</div>
 	</div>
