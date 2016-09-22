@@ -21,7 +21,7 @@ function clearTimeouts(){
 	}
 }
 
-// Change mouse cursor type to indicate to the user that the buttons are active
+// Change mouse cursor type to indicate to the user when buttons are active
 function changePointers(type) {
 	$(".tr").css("cursor", type);
 	$(".br").css("cursor", type);
@@ -87,6 +87,10 @@ function computerTurn(){
 function userTurn(flag) {
 	user_turn = flag;
 	changePointers(flag ? "pointer": "default");
+}
+
+function startTimer() {
+	setTimeout
 }
 
 // Increments counter
@@ -156,6 +160,7 @@ function blinkCounter(number){
 	})(number*2, "red");
 }
 
+// When user presses a color
 function userPush(color){
 	console.log("User pushed: "+color);
 	userSequence.push(color);

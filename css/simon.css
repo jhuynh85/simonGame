@@ -141,11 +141,11 @@ html {
   transform: translateY(4px);
 }
 
-/* STRICT/EASY switch */
+/* NORMAL/STRICT switch */
 .strict {
 	position: relative;
 	top: 110px;
-	left: 65px;
+	left: 47px;
 }
 
 /* ON/OFF switch */
